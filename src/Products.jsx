@@ -23,20 +23,20 @@ export const Products = () => {
   }, []);
 
   return (
-    <>
-      <h1>Products</h1>
-      <ul>
+    <div className="p-5 bg-slate-50">
+      <h1 className="text-2xl font-semibold">Products</h1>
+      <section className="p-5 grid grid-cols-3 gap-3">
         {loading && <img width="32" height="32" src="https://img.icons8.com/windows/32/spinner-frame-2.png" alt="spinner-frame-2"/>}
         {!loading && products.map(product => (
-          <li key={product.id}>
-            <h2>{product.title}</h2>
+          <article className="p-5 max-w-96 bg-sky-100" key={product.id}>
+            <h2 className="text-xl font-medium">{product.title}</h2>
             <p>{product.description}</p>
             <img src={product.image} alt={product.title} />
-            <button onClick={() => window.open(product.image, '_blank')}>View Image</button>
+            <button className="p-2 bg-blue-500 text-white rounded cursor-pointer" onClick={() => window.open(product.image, '_blank')}>View Image</button>
             <h4>{product.price}</h4>
-          </li>
+          </article>
         ))}
-      </ul>
-    </>
+      </section>
+    </div>
   );
 }
