@@ -1,12 +1,12 @@
-import React from 'react'
-
 export const Header = () => {
     return (
-        <header className="p-5 bg-teal-100 w-full h-fit">
-            <ul className="w-48 p-5 flex justify-evenly top-0 right-0">
-                <a href='#'><li className="m-3">Home</li></a>
-                <a href='#'><li className="m-3">Products</li></a>
-                <a href='#'><li className="m-3">Contact</li></a>
+        <header className="p-5 flex flex-row justify-end bg-teal-100 w-full h-24">
+            <ul className="w-fit flex justify-evenly">
+                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Home</li></a>
+                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Products</li></a>
+                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Contact</li></a>
+                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">About us</li></a>
+                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Login</li></a>
             </ul>
         </header>
     )
