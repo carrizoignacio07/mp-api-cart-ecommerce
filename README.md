@@ -6,6 +6,4 @@ In development...
 
 TODO:
 - Use Mercado Pago API.
-- Create Product Detail Page.
- (?).
-- Improve styles.
+- Improve Responsive design.
