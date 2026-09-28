@@ -6,23 +6,42 @@ const initialState = [];
 export const CartProvider = ({ children }) => {
     const comprasReducer = (state = initialState, action = {}) => {
         switch (action.type) {
-            case '[CARRITO] Agregar Compra':
-                return [...state, action.payload];
+            case '[CARRITO] Agregar Compra': {
+                const existe = state.find((item) => item.id === action.payload.id);
+
+                if (existe) {
+                    return state.map((item) =>
+                        item.id === action.payload.id
+                            ? { ...item, cantidad: item.cantidad + 1 }
+                            : item
+                    );
+                }
+
+                return [...state, { ...action.payload, cantidad: 1 }];
+            }
+
             case '[CARRITO] Aumentar Cantidad Compra':
-                return state.map((item) => {
-                    const cant = item.cantidad + 1;
-                    if (item.id === action.payload) return { ...item, cantidad: cant };
-                    return item;
-                });
+                return state.map((item) =>
+                    item.id === action.payload ? { ...item, cantidad: item.cantidad + 1 } : item
+                );
+
             case '[CARRITO] Disminuir Cantidad Compra':
-                return state.map((item) => {
-                    const cant = item.cantidad - 1;
-                    if (item.id === action.payload && item.cantidad > 1)
-                        return { ...item, cantidad: cant };
-                    return item;
-                });
+                return state.map((item) =>
+                    item.id === action.payload && item.cantidad > 1
+                        ? { ...item, cantidad: item.cantidad - 1 }
+                        : item
+                );
+
+            case '[CARRITO] Quitar Compra':
+                return state
+                    .map((item) =>
+                        item.id === action.payload ? { ...item, cantidad: item.cantidad - 1 } : item
+                    )
+                    .filter((item) => item.cantidad > 0);
+
             case '[CARRITO] Eliminar Compra':
-                return state.filter((compra) => compra.id !== action.payload);
+                return state.filter((item) => item.id !== action.payload);
+
             default:
                 return state;
         }
@@ -31,12 +50,10 @@ export const CartProvider = ({ children }) => {
     const [listaCompras, dispatch] = useReducer(comprasReducer, initialState);
 
     const agregarCompra = (compra) => {
-        compra.cantidad = 1;
-        const action = {
+        dispatch({
             type: '[CARRITO] Agregar Compra',
             payload: compra,
-        };
-        dispatch(action);
+        });
     };
     const aumentarCantidad = (id) => {
         const action = {
@@ -53,11 +70,16 @@ export const CartProvider = ({ children }) => {
         dispatch(action);
     };
     const eliminarCompra = (id) => {
-        const action = {
+        dispatch({
             type: '[CARRITO] Eliminar Compra',
             payload: id,
-        };
-        dispatch(action);
+        });
+    };
+    const quitarCompra = (id) => {
+        dispatch({
+            type: '[CARRITO] Quitar Compra',
+            payload: id,
+        });
     };
 
     return (
@@ -68,6 +90,7 @@ export const CartProvider = ({ children }) => {
                 aumentarCantidad,
                 disminuirCantidad,
                 eliminarCompra,
+                quitarCompra,
             }}
         >
             {children}

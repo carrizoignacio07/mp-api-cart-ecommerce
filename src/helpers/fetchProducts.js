@@ -12,5 +12,5 @@ export const fetchProducts = async (setLoading, setProducts) => {
     }
 };
 
-const calculateTotal = (price, quantity, discount) =>
-    price * quantity - discount;
+// const calculateTotal = (price, quantity, discount) =>
+//     price * quantity - discount;

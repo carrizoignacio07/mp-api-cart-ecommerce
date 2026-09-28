@@ -1,18 +1,21 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 
 import { ProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
 
+import { IoAdd } from 'react-icons/io5';
+import { IoIosRemove } from 'react-icons/io';
+
 export const ProductsPage = () => {
     const [loading, setLoading] = useState(false);
     const { products } = useContext(ProductContext);
-    const { agregarCompra, eliminarCompra } = useContext(CartContext);
+    const { agregarCompra, quitarCompra } = useContext(CartContext);
 
     const handleAgregar = (compra) => {
         agregarCompra(compra);
     };
     const handleQuitar = (id) => {
-        eliminarCompra(id);
+        quitarCompra(id);
     };
     return (
         <section className="p-7 grid grid-cols-3 gap-3 ">
@@ -36,31 +39,32 @@ export const ProductsPage = () => {
                                 ? product.description.slice(0, 100).concat('...')
                                 : product.description}
                         </p>
-                        {/* <span className="self-auto">{product.category}</span> */}
                         <img
                             className="max-h-70 object-scale-down m-auto"
                             src={product.images[0]}
                             alt={product.title}
                         />
                         <h4 className="text-l font-medium">${product.price}</h4>
-                        <button
-                            className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
-                            onClick={() => window.open(product.image, '_blank')}
-                        >
-                            View More
-                        </button>
-                        <button
-                            className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
-                            onClick={() => handleQuitar(product.id)}
-                        >
-                            Quitar
-                        </button>
-                        <button
-                            className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
-                            onClick={() => handleAgregar(products)}
-                        >
-                            Agregar
-                        </button>
+                        <div className="">
+                            <button
+                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                onClick={() => handleQuitar(product.id)}
+                            >
+                                <IoIosRemove />
+                            </button>
+                            <button
+                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                onClick={() => window.open(product.image, '_blank')}
+                            >
+                                View More
+                            </button>
+                            <button
+                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                onClick={() => handleAgregar(product)}
+                            >
+                                <IoAdd />
+                            </button>
+                        </div>
                     </article>
                 ))}
         </section>
