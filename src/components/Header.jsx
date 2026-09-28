@@ -1,13 +1,28 @@
+import { NavLink } from 'react-router-dom';
+
 export const Header = () => {
     return (
-        <header className="p-5 flex flex-row justify-end bg-teal-100 w-full h-24">
-            <ul className="w-fit flex justify-evenly">
-                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Home</li></a>
-                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Products</li></a>
-                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Contact</li></a>
-                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">About us</li></a>
-                <a className="p-0 m-0" href='#'><li className="p-3 dark:md:hover:bg-blue-200 rounded-xl">Login</li></a>
-            </ul>
+        <header className="p-5 w-full bg-teal-100 h-24">
+            <nav className="p-3 flex flex-row justify-end gap-5">
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/">
+                    Home
+                </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/products">
+                    Products
+                </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/about">
+                    About Us
+                </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/contact">
+                    Contact
+                </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/cart">
+                    Cart
+                </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/login">
+                    Login
+                </NavLink>
+            </nav>
         </header>
-    )
-}
+    );
+};
