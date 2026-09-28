@@ -5,5 +5,6 @@ Proyecto carrito ecommerce con tarjetas de productos integrando Fake Store API y
 In development...
 
 TODO:
+- Improve routing.
 - Use Mercado Pago API.
 - Improve Responsive design.
