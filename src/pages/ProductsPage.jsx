@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // Helpers
 import { fetchProducts } from '../helpers/fetchProducts';
 
-export const Products = () => {
+export const ProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -26,14 +26,10 @@ export const Products = () => {
                         className="p-5 max-w-96 max-h-100px bg-sky-100 flex flex-col justify-center items-center"
                         key={product.id}
                     >
-                        <h2 className="text-2xl font-medium">
-                            {product.title}
-                        </h2>
+                        <h2 className="text-2xl font-medium">{product.title}</h2>
                         <p className="m-3">
                             {product.description.length > 100
-                                ? product.description
-                                      .slice(0, 100)
-                                      .concat('...')
+                                ? product.description.slice(0, 100).concat('...')
                                 : product.description}
                         </p>
                         {/* <span className="self-auto">{product.category}</span> */}

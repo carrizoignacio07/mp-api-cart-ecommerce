@@ -1,9 +1,10 @@
-import { Products } from "../components/Products"
+import { ProductsPage } from './ProductsPage';
 
 export const HomePage = () => {
     return (
         <>
-            <Products></Products>
+            <h1>Home Page</h1>
+            <ProductsPage></ProductsPage>
         </>
-    )
-}
+    );
+};
