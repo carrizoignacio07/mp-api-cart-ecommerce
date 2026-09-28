@@ -11,8 +11,7 @@ export const CartProvider = ({ children }) => {
             case '[CARRITO] Aumentar Cantidad Compra':
                 return state.map((item) => {
                     const cant = item.cantidad + 1;
-                    if (item.id === action.payload)
-                        return { ...item, cantidad: cant };
+                    if (item.id === action.payload) return { ...item, cantidad: cant };
                     return item;
                 });
             case '[CARRITO] Disminuir Cantidad Compra':
@@ -22,7 +21,6 @@ export const CartProvider = ({ children }) => {
                         return { ...item, cantidad: cant };
                     return item;
                 });
-                break;
             case '[CARRITO] Eliminar Compra':
                 return state.filter((compra) => compra.id !== action.payload);
             default:

@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
-// Helpers
-import { fetchProducts } from '../helpers/fetchProducts';
+import { useEffect, useState, useContext } from 'react';
+
+import { ProductContext } from '../context/ProductContext';
+import { CartContext } from '../context/CartContext';
 
 export const ProductsPage = () => {
-    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const { products } = useContext(ProductContext);
+    const { agregarCompra, eliminarCompra } = useContext(CartContext);
 
-    useEffect(() => {
-        fetchProducts(setLoading, setProducts);
-    }, []);
-
+    const handleAgregar = (compra) => {
+        agregarCompra(compra);
+    };
+    const handleQuitar = (id) => {
+        eliminarCompra(id);
+    };
     return (
         <section className="p-7 grid grid-cols-3 gap-3 ">
             {loading && (
@@ -44,6 +48,18 @@ export const ProductsPage = () => {
                             onClick={() => window.open(product.image, '_blank')}
                         >
                             View More
+                        </button>
+                        <button
+                            className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                            onClick={() => handleQuitar(product.id)}
+                        >
+                            Quitar
+                        </button>
+                        <button
+                            className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                            onClick={() => handleAgregar(products)}
+                        >
+                            Agregar
                         </button>
                     </article>
                 ))}

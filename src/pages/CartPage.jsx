@@ -2,12 +2,8 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
 export const CartPage = () => {
-    const {
-        listaCompras,
-        aumentarCantidad,
-        disminuirCantidad,
-        eliminarCompra,
-    } = useContext(CarritoContext);
+    const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra } =
+        useContext(CartContext);
 
     const calcularTotal = () => {
         return listaCompras
@@ -20,8 +16,8 @@ export const CartPage = () => {
     };
 
     return (
-        <>
-            <table className="table">
+        <section className="p-7 flex flex-row justify-around">
+            <table className="w-full table-auto">
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -37,16 +33,14 @@ export const CartPage = () => {
                             <td>{item.price}</td>
                             <td>
                                 <button
-                                    className="btn btn-ouline-primary"
+                                    className="p-2 bg-teal-100 rounded-full cursor-pointer hover:bg-teal-200"
                                     onClick={() => disminuirCantidad(item.id)}
                                 >
                                     -
                                 </button>
-                                <button className="btn btn-primary">
-                                    {item.cantidad}
-                                </button>
+                                <button className="btn btn-primary">{item.cantidad}</button>
                                 <button
-                                    className="btn btn-ouline-primary"
+                                    className="p-2 bg-teal-100 rounded-full cursor-pointer hover:bg-teal-200"
                                     onClick={() => aumentarCantidad(item.id)}
                                 >
                                     +
@@ -55,7 +49,7 @@ export const CartPage = () => {
                             <td>
                                 <button
                                     type="button"
-                                    className="btn btn-danger"
+                                    className="p-2 bg-red-500 rounded-full cursor-pointer hover:bg-red-500"
                                     onClick={() => eliminarCompra(item.id)}
                                 >
                                     Eliminar
@@ -74,15 +68,13 @@ export const CartPage = () => {
                 </tbody>
             </table>
 
-            <div className="d-grid gap-2">
-                <button
-                    className="btn btn-primary"
-                    onClick={handleImpresion}
-                    disabled={listaCompras < 1}
-                >
-                    COMPRAR
-                </button>
-            </div>
-        </>
+            <button
+                className="p-2 bg-teal-100 rounded-full cursor-pointer hover:bg-teal-200"
+                onClick={handleImpresion}
+                disabled={listaCompras < 1}
+            >
+                COMPRAR
+            </button>
+        </section>
     );
 };

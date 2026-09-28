@@ -7,17 +7,20 @@ export const Header = () => {
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/">
                     Home
                 </NavLink>
+                <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/products">
+                    Products
+                </NavLink>
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/about">
-                    Nosotros
+                    About Us
                 </NavLink>
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/contact">
-                    Contacto
+                    Contact
                 </NavLink>
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/cart">
-                    Carrito
+                    Cart
                 </NavLink>
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/login">
-                    Iniciar sesión
+                    Login
                 </NavLink>
             </nav>
         </header>
