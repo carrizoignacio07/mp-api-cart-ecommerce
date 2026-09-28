@@ -1,10 +1,13 @@
-# React + API Mercado Pago
+# React Eccomerce.
 
-Proyecto carrito ecommerce con tarjetas de productos integrando DummyJSON API y la API de Mercado Pago para pagos.
+Ecommerce cart project with products cards fetching data from DummyJSON API and using Mercado Pago API for checkout and payment.
 
-In development...
+## In development...
 
-TODO:
+### TODO:
+- Improve Cart.
+- ProductDetail Page.
 - Improve routing.
 - Use Mercado Pago API.
 - Improve Responsive design.
+- Accessibility.
