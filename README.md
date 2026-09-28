@@ -1,6 +1,6 @@
 # React + API Mercado Pago
 
-Proyecto carrito ecommerce con tarjetas de productos integrando Fake Store API y la API de Mercado Pago para pagos.
+Proyecto carrito ecommerce con tarjetas de productos integrando DummyJSON API y la API de Mercado Pago para pagos.
 
 In development...
 
