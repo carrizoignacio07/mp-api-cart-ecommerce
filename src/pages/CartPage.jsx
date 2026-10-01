@@ -16,7 +16,7 @@ export const CartPage = () => {
     };
 
     return (
-        <section className="p-7 flex flex-col justify-start justify-items-center">
+        <section className="mt-1 mx-5 px-7 min-h-100 flex flex-col justify-center content-center">
             <table className="w-full table-auto">
                 <thead>
                     <tr className="border-b">
@@ -78,7 +78,7 @@ export const CartPage = () => {
             </table>
 
             <button
-                className="p-3 w-50 h-15px bg-teal-100 rounded-2xl cursor-pointer hover:bg-teal-200"
+                className="p-3 w-50 h-15px bg-green-300 rounded-2xl cursor-pointer hover:bg-green-400 self-center"
                 onClick={handleImpresion}
                 disabled={listaCompras.length < 1}
             >

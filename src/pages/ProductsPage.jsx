@@ -5,6 +5,7 @@ import { CartContext } from '../context/CartContext';
 
 import { IoAdd } from 'react-icons/io5';
 import { IoIosRemove } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 export const ProductsPage = () => {
     const [loading, setLoading] = useState(false);
@@ -45,19 +46,19 @@ export const ProductsPage = () => {
                             alt={product.title}
                         />
                         <h4 className="text-l font-medium">${product.price}</h4>
-                        <div className="">
+                        <div className="lg:w-min">
                             <button
                                 className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
                                 onClick={() => handleQuitar(product.id)}
                             >
                                 <IoIosRemove />
                             </button>
-                            <button
+                            <Link
+                                to={`/products/${product.id}`}
                                 className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
-                                onClick={() => window.open(product.image, '_blank')}
                             >
                                 View More
-                            </button>
+                            </Link>
                             <button
                                 className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
                                 onClick={() => handleAgregar(product)}

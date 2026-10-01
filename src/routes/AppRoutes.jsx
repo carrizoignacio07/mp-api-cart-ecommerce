@@ -5,9 +5,12 @@ import { AboutPage } from '../pages/AboutPage';
 import { ContactPage } from '../pages/ContactPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
+import { AuthLayout } from '../pages/AuthLayout';
 import { LoginPage } from '../pages/LoginPage';
-import { NotFoundPage } from '../pages/NotFoundPage';
+import { RegisterPage } from '../pages/RegisterPage';
+import { ProductsPage } from '../pages/ProductsPage';
 import { ProductDetailPage } from '../pages/ProductDetailPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
 
 export const AppRoutes = () => {
     return (
@@ -15,10 +18,14 @@ export const AppRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route element={<AuthLayout />}>
+                <Route path="login" element={<LoginPage />} />
+                <Route path="register" element={<RegisterPage />} />
+            </Route>
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     );
