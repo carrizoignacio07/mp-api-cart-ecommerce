@@ -46,7 +46,7 @@ export const ProductsPage = () => {
                             alt={product.title}
                         />
                         <h4 className="text-l font-medium">${product.price}</h4>
-                        <div className="lg:w-min">
+                        <div className="lg:w-fit wrap-anywhere flex justify-center items-center">
                             <button
                                 className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
                                 onClick={() => handleQuitar(product.id)}

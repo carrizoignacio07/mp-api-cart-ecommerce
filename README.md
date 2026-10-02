@@ -1,12 +1,12 @@
-# React Eccomerce.
+# React Eccomerce
 
 Ecommerce cart project with products cards fetching data from DummyJSON API and using Mercado Pago API for checkout and payment.
 
-## In development...
+## Status: In development
 
-### TODO:
+### TODO
+
 - ProductDetail Page
-- Fix Cart.
 - Improve routing.
 - Use Mercado Pago API.
 - Dark Theme.

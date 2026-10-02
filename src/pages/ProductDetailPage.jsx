@@ -13,7 +13,7 @@ export const ProductDetailPage = () => {
         return <p>Cargando...</p>;
     }
     return (
-        <section className="m-5 flex flex-col justify-center content-center">
+        <section className="m-5 p-5 flex flex-col justify-center content-center">
             <h1 className="text-3xl">{product.title}</h1>
             <p className="text-1xl">Description: {product.description}</p>
             <p className="text-1xl">Category: {product.category}</p>
