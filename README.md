@@ -6,8 +6,7 @@ Ecommerce cart project with products cards fetching data from DummyJSON API and 
 
 ### TODO
 
-- ProductDetail Page
-- Improve routing.
+- Improve ProductDetail Page
 - Use Mercado Pago API.
 - Dark Theme.
 - Login/Register: Firebase or Supabase.
