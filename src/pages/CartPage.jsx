@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-
+const URL = 'https://api.mercadopago.com/checkout/preferences';
 export const CartPage = () => {
-    const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra } =
+    const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra, state } =
         useContext(CartContext);
 
     const calcularTotal = () => {
@@ -11,8 +11,25 @@ export const CartPage = () => {
             .toFixed(2);
     };
 
-    const handleImpresion = () => {
-        window.print();
+    const handleBuy = async () => {
+        try {
+            console.log(state);
+            const response = await fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${import.meta.env.ACCESS_TOKEN}`,
+                },
+                body: JSON.stringify({
+                    items: state,
+                }),
+            });
+            console.log(response);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error creating payment:', error);
+        }
     };
 
     return (
@@ -78,8 +95,8 @@ export const CartPage = () => {
             </table>
 
             <button
-                className="p-3 w-50 h-15px bg-green-300 rounded-2xl cursor-pointer hover:bg-green-400 self-center"
-                onClick={handleImpresion}
+                className="p-3 mb-5 w-50 h-15px bg-green-300 rounded-2xl cursor-pointer hover:bg-green-400 self-center"
+                onClick={() => handleBuy(state)}
                 disabled={listaCompras.length < 1}
             >
                 Buy

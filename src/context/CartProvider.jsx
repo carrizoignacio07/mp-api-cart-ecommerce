@@ -91,6 +91,7 @@ export const CartProvider = ({ children }) => {
                 disminuirCantidad,
                 eliminarCompra,
                 quitarCompra,
+                state: { listaCompras },
             }}
         >
             {children}
