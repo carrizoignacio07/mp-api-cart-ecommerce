@@ -16,7 +16,7 @@ export const App = () => {
             <ProductsProvider>
                 <CartProvider>
                     <Header />
-                    <main>
+                    <main className="flex flex-col justify-center items-center gap-5 min-h-[calc(100vh-10rem)]">
                         <AppRoutes />
                     </main>
                     <Footer />

@@ -9,7 +9,8 @@ export const Header = () => {
     const cantidadProductos = listaCompras.reduce((total, item) => total + item.cantidad, 0);
 
     return (
-        <header className="p-5 w-full bg-teal-100 h-24">
+        <header className="p-3 w-full bg-teal-100 h-24 sticky flex flex-row justify-between items-center">
+            <h1 className="text-2xl font-medium px-3">Fake Store</h1>
             <nav className="p-3 flex flex-row justify-end gap-5">
                 <NavLink className="p-2 rounded-full hover:bg-teal-200" to="/">
                     Home

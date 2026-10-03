@@ -19,7 +19,7 @@ export const ProductsPage = () => {
         quitarCompra(id);
     };
     return (
-        <section className="p-7 grid grid-cols-3 gap-3 ">
+        <section className="p-7 grid grid-cols-3 gap-5 ">
             {loading && (
                 <img
                     width="32"
@@ -48,19 +48,19 @@ export const ProductsPage = () => {
                         <h4 className="text-l font-medium">${product.price}</h4>
                         <div className="lg:w-fit wrap-anywhere flex justify-center items-center">
                             <button
-                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                className="p-3 m-3 max-w-fit bg-blue-400 text-white rounded cursor-pointer hover:bg-red-500"
                                 onClick={() => handleQuitar(product.id)}
                             >
                                 <IoIosRemove />
                             </button>
                             <Link
                                 to={`/products/${product.id}`}
-                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                className="p-3 m-3 max-w-fit bg-blue-400 text-white rounded cursor-pointer hover:bg-blue-600"
                             >
-                                View More
+                                More
                             </Link>
                             <button
-                                className="p-3 m-3 max-w-fit bg-blue-500 text-white rounded cursor-pointer dark:md:hover:bg-blue-700"
+                                className="p-3 m-3 max-w-fit bg-blue-400 text-white rounded cursor-pointer hover:bg-green-500"
                                 onClick={() => handleAgregar(product)}
                             >
                                 <IoAdd />
